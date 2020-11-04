@@ -33,20 +33,6 @@ if (isset($_POST['delete'])) {
         background-size: 100%;
     }
 
-    #bookform {
-        border: 2px solid black;
-        border-radius: 25px;
-        background-color: #bc85a3;
-    }
-
-    td {
-        background-color: #cdb7f6;
-    }
-
-    #book {
-        text-decoration: none;
-        text-decoration-color: black;
-    }
 </style>
 
 <body>
@@ -55,7 +41,7 @@ if (isset($_POST['delete'])) {
         <p class="h1 text-center font-weight-bold mt-2">Bookmarks</p>
         <div class="row">
             <div class="col-md">
-                <form action="bookmark.php" method="post" id="bookform" class="m-1 p-5">
+                <form action="bookmark.php" method="post" class="bg bg-light border border-dark rounded m-1 p-5">
                     <div class="form-group">
                         <label for="name" class="font-weight-bold">BOOKMARK NAME:</label>
                         <input type="text" class="form-control" name="bookmark">
@@ -71,14 +57,14 @@ if (isset($_POST['delete'])) {
                 </form>
             </div>
             <div class="col-md">
-                <table class="table table-striped m-1 p-1">
+                <table class="table table-striped bg bg-light m-1 p-1">
                     <tbody>
                         <?php
                         foreach ($_SESSION['bookmarks'] as $bookmarkname => $url) { ?>
-                            <tr>
-                                <td><a style="text-decoration: none; font-weight: bold; font-size: 20px;" href="<?php echo $url; ?>" target="_blank"><?php echo  $bookmarkname; ?></a></td>
+                            <tr class="border border-dark">
+                                <td ><a style="text-decoration: none; font-weight: bold; font-size: 20px;" href="<?php echo $url; ?>" target="_blank"><?php echo  $bookmarkname; ?></a></td>
                                 <form action="" method="post">
-                                    <td><input id="book" type="hidden" name="bookmark" value="<?php echo $bookmarkname; ?>"></td>
+                                    <td><input type="hidden" name="bookmark" value="<?php echo $bookmarkname; ?>"></td>
                                     <td class="text-right"><input type="submit" value="X" name="delete" class="btn btn-secondary"></td>
                                 </form>
                             </tr>
